@@ -104,7 +104,7 @@
                 <p class="font-bold text-xl">Ajouter une filière</p>
                 <p>Rensigner les informations de la nouvelle filière</p>
                 
-                <form action="A_filiere.php" method="post" class="w-200 p-4 shadow-lg border border-gray-300 rounded-xl mt-4">
+                <form action="filiere.php" method="post" class="w-200 p-4 shadow-lg border border-gray-300 rounded-xl mt-4">
                     <div class="flex gap-2">
                         <div>
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'date.php'; ?>
 
 <!DOCTYPE html>
@@ -103,9 +104,14 @@
 
 
                 <?php
-                     if (isset($_POST['ajouter'])) {
 
-                     echo "Le formulaire est envoyé !";
+                if (!isset($_SESSION['filieres'])) {
+                    $_SESSION['filieres'] = $filieres;
+                }
+
+                if (isset($_POST['ajouter'])) {
+
+
                     $nouvelfiliere = [
                         "code_filiere" => $_POST['code'],
                         "nom_filiere" => $_POST['nom'],
@@ -113,9 +119,13 @@
                         "description" => $_POST['description'],
 
                     ];
-                    $_SESSION["$filieres"][] = $nouvelfiliere;
-                    
+                    $_SESSION['filieres'][] = $nouvelfiliere;
+
+                    header("Location: filiere.php");
+                    exit;
                 }
+
+                $filieres = $_SESSION['filieres'];
                 ?>
 
                 <div class="flex items-center justify-between">
@@ -129,7 +139,7 @@
                 </div>
 
 
-                <div class="mt-4 flex items-center justify-between grid grid-cols-2">
+                <div class="mt-4 flex items-center justify-between grid grid-cols-2 gap-y-4">
                     <?php foreach ($filieres as $filiere) { ?>
                         <div class="w-120 h-55 shadow-lg border border-gray-300 rounded-xl mt-2 ">
 
