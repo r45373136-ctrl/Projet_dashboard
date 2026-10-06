@@ -176,7 +176,7 @@
                         <td class="p-3">Coumba</td>
                         <td class="p-3">F</td>
                         <td class="p-3">M1 RS</td>
-                        <td class="p-3">Réseaux</td>
+                        <td class="p-3">Réseaux et Systèmes</td>
                         <td class="p-3">M1</td>
                        </tr>
 
