@@ -101,8 +101,10 @@
 
 
             <main class="pt-16 ml-3">
+                <p class="font-bold text-xl">Ajouter une classe</p>
+                <p>Rensigner les informations de la nouvelle classe</p>
 
-            <form action="filiere.php" method="post" class="w-200 p-4 shadow-lg border border-gray-300 rounded-xl mt-4">
+            <form action="classe.php" method="post" class="w-200 p-4 shadow-lg border border-gray-300 rounded-xl mt-4">
                     <div class="flex gap-2">
                         <div>
 
@@ -119,7 +121,7 @@
                         <div>
 
                             <label for="">Filière</label><br>
-                            <select name="" id="" class="border w-94 h-8 rounded-sm" name="code">
+                            <select name="filiere" id="" class="border w-94 h-8 rounded-sm" name="code">
                                 <option value="">Choisir une filière</option>
                                 <option value="GL">Génie Logiciel</option>
                                 <option value="DG">Design Graphique</option>
@@ -130,7 +132,7 @@
                         </div>
                         <div>
                             <label for="">Niveau</label><br>
-                            <select name="" id="" class="border w-94 h-8 rounded-sm" name="code">
+                            <select name="niveau" id="" class="border w-94 h-8 rounded-sm" name="code">
                                 <option value="">Choisir un niveau</option>
                                 <option value="L1">Licence 1</option>
                                 <option value="L2">Licence 2</option>
@@ -139,8 +141,8 @@
                         </div>
                     </div><br>
 
-                    <label for="">Responsable</label><br>
-                    <input type="text" class="border w-full h-8 rounded-sm" name="responsable"><br><br>
+                    <label for="">Capacité</label><br>
+                    <input type="text" class="border w-full h-8 rounded-sm" name="capacite"><br><br>
 
                     <div class="mt-4">
                         <button type="submit" name ="ajouter"class=" bg-red-800 text-white rounded p-2  px-8 gap-3  hover:bg-red-700 hover:text-white 

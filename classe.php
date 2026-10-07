@@ -1,4 +1,35 @@
-<?php include 'date.php'; ?>
+<?php
+
+session_start();
+
+include 'date.php';
+
+
+if (!isset($_SESSION['classes'])) {
+    $_SESSION['classes'] = $classes;
+}
+
+if (isset($_POST['ajouter'])) {
+
+
+    $nouvelclasse = [
+        "code_classe" => $_POST['code'],
+        "nom_classe" => $_POST['nom'],
+        "capacite" => $_POST['capacite'],
+        "code_filiere" => $_POST['filiere'],
+        "code_niveau" => $_POST['niveau'],
+
+    ];
+    $_SESSION['classes'][] = $nouvelclasse;
+
+    // header("Location: niveau.php");
+    // exit;
+}
+
+$classes = $_SESSION['classes'];
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
