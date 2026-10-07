@@ -84,9 +84,11 @@
 
             <header class="bg-white fixed top-0 right-0 w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
                 <div class="w-full flex items-center justify-between px-3">
-                    <div>
-                        <input type="text" placeholder="rechercher....." class="rounded-xl border w-65">
-                    </div>
+                    <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm" ></i>
+
+                    <input type="search" placeholder="Rechercher un etudiant..." class=" border border-gray-700 w-65 rounded-sm pl-10">
+                </div>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-red-800"></div>
                         <p>Mon Profil</p>
