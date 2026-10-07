@@ -39,56 +39,46 @@ $niveaux = [
     [
         "code_niveau" => "L3",
         "libelle_niveau" => "Licence 3"
-    ],
-
-    [
-        "code_niveau" => "M1",
-        "libelle_niveau" => "Master 1"
-    ],
-
-    [
-        "code_niveau" => "M2",
-        "libelle_niveau" => "Master 2"
     ]
 ];
 
 
 $classes = [
     [
-        "code_classe" => "GL-M1",
-        "nom_classe" => "L1 Génie Logiciel A",
+        "code_classe" => "L3-GL",
+        "nom_classe" => "L3 Génie Logiciel",
         "capacite" => 30,
         "code_filiere" => "GL",
         "code_niveau" => "L1"
     ],
 
     [
-        "code_classe" => "GL-L2",
-        "nom_classe" => "L2 Génie Logiciel A",
+        "code_classe" => "L1-GL",
+        "nom_classe" => "L1 Génie Logiciel",
         "capacite" => 30,
         "code_filiere" => "GL",
         "code_niveau" => "L2"
     ],
 
     [
-        "code_classe" => "DG-L1",
-        "nom_classe" => "L1 Design Graphique A",
+        "code_classe" => "L1-DG",
+        "nom_classe" => "L1 Design Graphique",
         "capacite" => 25,
         "code_filiere" => "DG",
         "code_niveau" => "L1"
     ],
 
     [
-        "code_classe" => "DG-M2",
-        "nom_classe" => "L2 Design Graphique A",
+        "code_classe" => "L2-DG",
+        "nom_classe" => "L2 Design Graphique",
         "capacite" => 25,
         "code_filiere" => "DG",
         "code_niveau" => "L2"
     ],
 
     [
-        "code_classe" => "RS-L1",
-        "nom_classe" => "L1 Réseaux et Systèmes A",
+        "code_classe" => "L1-RS",
+        "nom_classe" => "L1 Réseaux et Systèmes",
         "capacite" => 30,
         "code_filiere" => "RS",
         "code_niveau" => "L1"
@@ -153,4 +143,3 @@ $etudiants = [
     ]
 ];
 
-?>

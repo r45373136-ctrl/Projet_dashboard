@@ -1,6 +1,13 @@
+<?php session_start(); ?>
 <?php include 'date.php'; ?>
 
+<?php
+if (!isset($_SESSION['filieres'])) {
+    $_SESSION['filieres'] = $filieres;
+}
 
+$filieres = $_SESSION['filieres'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
