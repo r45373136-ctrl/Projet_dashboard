@@ -21,7 +21,7 @@
             <div class="ml-7 mt-6">
                 <p class="text-white font-bold  text-3xl">E221</p>
 
-                <P class="text-white">Ecole superieure 221</P>
+                <P class="text-white text-[14px]">Ecole superieure 221</P>
 
             </div>
             <ul class="space-y-3 mx-auto flex flex-col items-center mt-8">
@@ -86,11 +86,11 @@
                     <div class="relative">
                     <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm" ></i>
 
-                    <input type="search" placeholder="Rechercher un etudiant..." class=" border border-gray-700 w-65 rounded-sm pl-10">
+                    <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
                 </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-red-800"></div>
-                        <p>Mon Profil</p>
+                        <div class="w-8 h-8 rounded-full border-2 border-red-800 bg-[url(images/image.png)] bg-cover bg-center"></div>
+                        <p class="text-[12px]">Mon Profil</p>
                         <i class="fa-solid fa-chevron-down text-xs" style="color: rgb(6, 7, 7);"></i>
                     </div>
                 </div>

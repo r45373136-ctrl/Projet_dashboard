@@ -5,8 +5,24 @@
 if (!isset($_SESSION['filieres'])) {
     $_SESSION['filieres'] = $filieres;
 }
+if (!isset($_SESSION['niveaux'])) {
+    $_SESSION['niveaux'] = $niveaux;
+}
+
+if (!isset($_SESSION['classes'])) {
+    $_SESSION['classes'] = $classes;
+}
+
+if (!isset($_SESSION['etudiants'])) {
+    $_SESSION['etudiants'] = $etudiants;
+}
 
 $filieres = $_SESSION['filieres'];
+$niveaux = $_SESSION['niveaux'];
+$classes = $_SESSION['classes'];
+$etudiants = $_SESSION['etudiants'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +46,7 @@ $filieres = $_SESSION['filieres'];
             <div class="ml-7 mt-6">
                 <p class="text-white font-bold  text-3xl">E221</p>
 
-                <P class="text-white">Ecole superieure 221</P>
+                <P class="text-white text-[14px]">Ecole superieure 221</P>
 
             </div>
             <ul class="space-y-3 mx-auto flex flex-col items-center mt-8">
@@ -93,13 +109,13 @@ $filieres = $_SESSION['filieres'];
             <header class="bg-white fixed top-0 right-0 w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
                 <div class="w-full flex items-center justify-between px-3">
                     <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm" ></i>
+                        <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm"></i>
 
-                    <input type="search" placeholder="Rechercher un etudiant..." class=" border border-gray-700 w-65 rounded-sm pl-10">
-                </div>
+                        <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
+                    </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-red-800"></div>
-                        <p>Mon Profil</p>
+                        <div class="w-8 h-8 rounded-full border-2 border-red-800 bg-[url(images/image.png)] bg-cover bg-center"></div>
+                        <p class="text-[12px]">Mon Profil</p>
                         <i class="fa-solid fa-chevron-down text-xs" style="color: rgb(6, 7, 7);"></i>
                     </div>
                 </div>
@@ -118,8 +134,8 @@ $filieres = $_SESSION['filieres'];
                 <p>Vue d'ensemble des effectifs, des formations et des clases</p>
                 <div class="flex justify-between items-center mt-4">
 
-                    <div class="w-60 h-30 shadow-lg border border-gray-300 rounded-2xl mt-2 transition duration-300 ease-in-out
-                     hover:-translate-y-1 hover:scale-90">
+                    <div class="w-60 h-30  border border-gray-300 rounded-2xl transition-all duration-500 ease-in-out
+                                hover:-translate-y-1 hover:shadow-xl">
                         <div class="flex items-center gap-10 mt-5 ml-4">
                             <div class="w-12 h-12 bg-red-800 rounded-xl flex items-center justify-center">
 
@@ -137,8 +153,8 @@ $filieres = $_SESSION['filieres'];
                             <i class="fa-solid fa-right-long text-red-800 ml-50"></i>
                         </a>
                     </div>
-                    <div class="w-60 h-30 shadow-lg border border-gray-300 rounded-2xl transition duration-300 ease-in-out
-                          hover:-translate-y-1 hover:scale-90">
+                    <div class="w-60 h-30  border border-gray-300 rounded-2xl transition-all duration-500 ease-in-out
+                                hover:-translate-y-1 hover:shadow-xl">
                         <div class="flex items-center gap-10 mt-5 ml-4">
                             <div class="w-12 h-12 bg-red-800 rounded-xl flex items-center justify-center">`
                                 <i class="fa-solid fa-layer-group text-white text-xl"></i>
@@ -156,8 +172,8 @@ $filieres = $_SESSION['filieres'];
                         </a>
                     </div>
 
-                    <div class="w-60 h-30 shadow-lg border border-gray-300 rounded-2xl transition duration-300 ease-in-out
-                          hover:-translate-y-1 hover:scale-90">
+                    <div class="w-60 h-30  border border-gray-300 rounded-2xl transition-all duration-500 ease-in-out
+                                hover:-translate-y-1 hover:shadow-xl">
                         <div class="flex items-center gap-10 mt-5 ml-4">
                             <div class="w-12 h-12 bg-red-800 rounded-xl flex items-center justify-center">
                                 <i class="fa-solid fa-chalkboard-user text-white text-xl"></i>
@@ -175,8 +191,8 @@ $filieres = $_SESSION['filieres'];
                         </a>
                     </div>
 
-                    <div class="w-60 h-30 shadow-lg border border-gray-300 rounded-2xl transition duration-300 ease-in-out
-                          hover:-translate-y-1 hover:scale-90">
+                    <div class="w-60 h-30  border border-gray-300 rounded-2xl transition-all duration-500 ease-in-out
+                                hover:-translate-y-1 hover:shadow-xl">
                         <div class="flex items-center gap-10 mt-5 ml-4">
                             <div class="w-12 h-12 bg-red-800 rounded-xl flex items-center justify-center">
                                 <i class="fa-solid fa-user-graduate text-white text-xl"></i>
@@ -214,7 +230,7 @@ $filieres = $_SESSION['filieres'];
                         </thead>
 
                         <tbody class="text-center">
-                            <?php foreach ($etudiants as $etudiant) { ?>
+                            <?php foreach (array_slice($etudiants, -5) as $etudiant) { ?>
                                 <tr>
                                     <td class="p-3"><?php echo $etudiant["matricule"] ?></td>
                                     <td class="p-3"><?php echo $etudiant["nom"] ?></td>
