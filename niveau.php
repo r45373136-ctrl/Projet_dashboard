@@ -42,10 +42,15 @@ $niveaux = $_SESSION['niveaux'];
 
 <body>
 
+    <div id="overlay"
+        class="fixed inset-0 bg-black/50 z-40 hidden md:hidden">
+    </div>
+
     <div class="flex">
 
         <!-- SIDEBAR -->
-        <aside class="w-[20%] h-screen bg-red-800 fixed left-0 top-0">
+        <aside class="fixed left-0 top-0 z-50 w-64 md:w-[20%] h-screen bg-red-800 transform -translate-x-full md:translate-x-0
+           transition-transform duration-300">
             <div class="ml-7 mt-6">
                 <p class="text-white font-bold  text-3xl">E221</p>
 
@@ -64,7 +69,7 @@ $niveaux = $_SESSION['niveaux'];
                 <li>
 
                     <a href="filiere.php" class=" rounded  w-52 flex items-center p-2 gap-3  hover:bg-red-700 hover:text-white 
-            transition duration-300">
+                             transition duration-300">
                         <i class="fa-solid fa-layer-group text-white"></i>
                         <span class="font-medium text-white">Filières</span></a>
 
@@ -72,7 +77,7 @@ $niveaux = $_SESSION['niveaux'];
                 <li class="space-x-3">
 
                     <a href="" class="bg-white rounded p-2 w-52 flex items-center gap-3 hover:bg-red-700 hover:text-white 
-            transition duration-300">
+                            transition duration-300">
                         <i class="fa-solid fa-graduation-cap text-red-800"></i>
                         <span class="font-medium text-red-800">Niveaux</span>
                     </a>
@@ -106,17 +111,28 @@ $niveaux = $_SESSION['niveaux'];
         </aside>
 
 
-        <div class="w-[80%] ml-[20%] bg-sky-50 min-h-screen">
+        <div class="w-full md:w-[80%] md:ml-[20%] min-w-0 bg-sky-50 min-h-screen">
 
             <!-- menu -->
 
-            <header class="bg-white fixed top-0 right-0 w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
-                <div class="w-full flex items-center justify-between px-3">
-                    <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm" ></i>
+            <header class="bg-white fixed top-0 right-0 w-full md:w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
+                <div class="w-full flex items-center justify-between px-3 gap-2">
 
-                    <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
-                </div>
+
+                    <!-- bouton burgur -->
+
+                    <button id="menuBtn"
+                        class="md:hidden text-red-800 text-2xl mr-2"
+                        aria-label="Ouvrir le menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm"></i>
+
+                        <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
+                    </div>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full border-2 border-red-800 bg-[url(images/image.png)] bg-cover bg-center"></div>
                         <p class="text-[12px]">Mon Profil</p>
@@ -124,6 +140,57 @@ $niveaux = $_SESSION['niveaux'];
                     </div>
                 </div>
             </header>
+
+
+            <!-- MENU DEROULANT MOBILE -->
+            <div id="mobileMenu" class="hidden md:hidden fixed top-[50px] left-0 w-[40%] bg-red-800/85 shadow-lg z-40 p-4">
+
+                <ul class="flex flex-col gap-2">
+
+                    <li>
+                        <a href="index.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-gauge mr-3 text-white"></i>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    
+                    <li>
+                        <a href="filiere.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-graduation-cap mr-3"></i>
+                            Filières
+                        </a>
+                    </li>
+                    <li>
+                        <a href="niveau.php" class="block bg-white w-40 p-3 rounded text-red-800 hover:bg-red-700 flex items-center">
+                            <i class="fa-solid fa-layer-group mr-3 text-red-800"></i>
+                            Niveaux
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="classe.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-chalkboard-user mr-3"></i>
+                            Classes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="etudiant.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-user-graduate mr-3"></i>
+                            Étudiants
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="statistique.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-chart-simple mr-3"></i>
+                            Statistiques
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
 
 
 
@@ -144,9 +211,9 @@ $niveaux = $_SESSION['niveaux'];
 
                 </div>
 
-                <div class="flex items-center justify-center gap-x-5 gap-y-5 grid grid-cols-3 mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full">
                     <?php foreach ($niveaux as $niveau) { ?>
-                        <div class="w-80 h-30 border border-gray-300 rounded-2xl mt-2 transition-all duration-500 ease-in-out
+                        <div class="w-full min-w-0 min-h-[120px] border border-gray-300 rounded-2xl p-3 transition-all duration-500 ease-in-out
                                     hover:-translate-y-1 hover:shadow-xl">
                             <p class="text-red-800 font-bold mt-2 mx-2"><?php echo $niveau["code_niveau"] ?></p>
                             <p class="font-bold text-xl mt-2 mx-2"><?php echo $niveau["libelle_niveau"] ?></p>
@@ -164,6 +231,50 @@ $niveaux = $_SESSION['niveaux'];
         </div>
 
     </div>
+
+
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menuBtn');
+        const overlay = document.getElementById('overlay');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Ouvrir et fermer le menu mobile
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+
+            const menuOuvert = !mobileMenu.classList.contains('hidden');
+
+            menuBtn.innerHTML = menuOuvert ?
+                '<i class="fa-solid fa-xmark"></i>' :
+                '<i class="fa-solid fa-bars"></i>';
+        });
+
+        // Fermer le menu après avoir choisi une page
+        mobileMenu.querySelectorAll('a').forEach(function(lien) {
+            lien.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gestion de la sidebar existante
+        if (sidebar && overlay) {
+            overlay.addEventListener('click', function() {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            });
+        }
+
+        // Fermer le menu avec Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                mobileMenu.classList.add('hidden');
+                sidebar?.classList.add('-translate-x-full');
+                overlay?.classList.add('hidden');
+            }
+        });
+    </script>
 
 
 </body>

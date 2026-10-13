@@ -13,10 +13,15 @@
 
 <body>
 
+    <div id="overlay"
+        class="fixed inset-0 bg-black/50 z-40 hidden md:hidden">
+    </div>
+
     <div class="flex">
 
         <!-- SIDEBAR -->
-        <aside class="w-[20%] h-screen bg-red-800 fixed left-0 top-0">
+        <aside class="fixed left-0 top-0 z-50 w-64 md:w-[20%] h-screen bg-red-800 transform -translate-x-full md:translate-x-0
+           transition-transform duration-300">
             <div class="ml-7 mt-6">
                 <p class="text-white font-bold  text-3xl">E221</p>
 
@@ -77,17 +82,26 @@
         </aside>
 
 
-        <div class="w-[80%] ml-[20%] bg-sky-50 min-h-screen">
+        <div class="w-full md:w-[80%] md:ml-[20%] min-w-0 bg-sky-50 min-h-screen">
 
             <!-- menu -->
 
-            <header class="bg-white fixed top-0 right-0 w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
-                <div class="w-full flex items-center justify-between px-3">
-                    <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm" ></i>
+            <header class="bg-white fixed top-0 right-0 w-full md:w-[80%] h-[50px]  shadow-lg p2 flex items-center justify-between">
+                <div class="w-full flex items-center justify-between px-3 gap-2">
 
-                    <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
-                </div>
+
+                    <!-- bouton burgur -->
+
+                    <button id="menuBtn"
+                        class="md:hidden text-red-800 text-2xl mr-2"
+                        aria-label="Ouvrir le menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass text-gray-700 absolute left-3 top-1/2 -translate-y-1/2 text-sm"></i>
+
+                        <input type="search" placeholder="Rechercher..." class=" border border-gray-700 w-65 rounded-sm pl-10">
+                    </div>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full border-2 border-red-800 bg-[url(images/image.png)] bg-cover bg-center"></div>
                         <p class="text-[12px]">Mon Profil</p>
@@ -98,32 +112,88 @@
 
 
 
+            <!-- MENU DEROULANT MOBILE -->
+            <div id="mobileMenu" class="hidden md:hidden fixed top-[50px] left-0 w-[40%] bg-red-800/85 shadow-lg z-40 p-4">
+
+                <ul class="flex flex-col gap-2">
+
+                    <li>
+                        <a href="index.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-gauge mr-3 text-white"></i>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="filiere.php" class="block bg-white w-40 p-3 rounded text-red-800 hover:bg-red-700 flex items-center">
+                            <i class="fa-solid fa-graduation-cap mr-3 text-red-800"></i>
+                            Filières
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="niveau.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-layer-group mr-3"></i>
+                            Niveaux
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="classe.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-chalkboard-user mr-3"></i>
+                            Classes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="etudiant.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-user-graduate mr-3"></i>
+                            Étudiants
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="statistique.php" class="block p-3 rounded text-white hover:bg-red-700">
+                            <i class="fa-solid fa-chart-simple mr-3"></i>
+                            Statistiques
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
             <!-- contenu -->
 
 
             <main class="pt-16 ml-3">
 
-            <p class="font-bold text-xl">Ajouter un niveau</p>
+                <p class="font-bold text-xl">Ajouter un niveau</p>
                 <p>Rensigner les informations pour ce niveau</p>
-                
-                <form action="niveau.php" method="post" class="w-200 p-4 shadow-lg border border-gray-300 rounded-xl mt-4">
-                    <div class="flex gap-2">
-                        <div>
+
+                <form action="niveau.php" method="post" class="w-full max-w-3xl p-4 sm:p-6 shadow-lg border border-gray-300 rounded-xl mt-4
+                      bg-white">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="w-full min-w-0">
 
                             <label for="">Code</label><br>
-                            <input type="text" class="border w-94 h-8 rounded-sm" name="code">
+                            <input type="text" class="border w-full h-8 rounded-sm px-2" name="code">
                         </div>
-                        <div>
+
+                        <div class="w-full min-w-0">
                             <label for="">Libellé</label><br>
-                            <input type="text" class="border w-96 h-8 rounded-sm" name="libelle">
+                            <input type="text" class="border w-full h-8 rounded-sm px-2" name="libelle">
                         </div>
                     </div><br>
-                    
-                        <button type="submit" name ="ajouter"class=" bg-red-800 text-white rounded p-2  px-8 gap-3  hover:bg-red-700 hover:text-white 
-                               transition duration-300" >Envoyer</button>
 
-                        <a href="" class=" border text-gray-700 rounded p-2  px-8 gap-3  hover:bg-gray-700 hover:text-white 
-                       transition duration-300">Annuler</a>
+
+                    <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                        <a href=""><button type="submit" name="ajouter" class="bg-red-800 text-white rounded-md py-2 px-8 w-full hover:bg-red-700 hover:text-white 
+                               transition duration-300">Envoyer</button></a>
+
+                        <a href=""><button class=" border text-gray-700 rounded-md py-2  px-8 w-full hover:bg-gray-700 hover:text-white 
+                       transition duration-300">Annuler</button></a>
                     </div>
                 </form>
 
@@ -131,6 +201,50 @@
         </div>
 
     </div>
+
+
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menuBtn');
+        const overlay = document.getElementById('overlay');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Ouvrir et fermer le menu mobile
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+
+            const menuOuvert = !mobileMenu.classList.contains('hidden');
+
+            menuBtn.innerHTML = menuOuvert ?
+                '<i class="fa-solid fa-xmark"></i>' :
+                '<i class="fa-solid fa-bars"></i>';
+        });
+
+        // Fermer le menu après avoir choisi une page
+        mobileMenu.querySelectorAll('a').forEach(function(lien) {
+            lien.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gestion de la sidebar existante
+        if (sidebar && overlay) {
+            overlay.addEventListener('click', function() {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            });
+        }
+
+        // Fermer le menu avec Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                mobileMenu.classList.add('hidden');
+                sidebar?.classList.add('-translate-x-full');
+                overlay?.classList.add('hidden');
+            }
+        });
+    </script>
 
 
 </body>
